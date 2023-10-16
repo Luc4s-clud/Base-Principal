@@ -13,7 +13,24 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Sua lógica de login aqui ...
+    
+    try {
+      const response = await axios.post('http://localhost:3001/login', {
+        email: email,
+        password: password
+      });
+      if (response.data && response.data.message) {
+        if (response.data.message === "Login bem-sucedido!") {
+          // Aqui você pode redirecionar o usuário, definir tokens, etc.
+          alert("Login bem-sucedido!");
+        } else {
+          setError(response.data.message);
+        }
+      }
+    } catch (err) {
+      setError("Erro ao tentar fazer login. Por favor, tente novamente.");
+    }
+    
   };
 
   const handleRegister = async (e) => {

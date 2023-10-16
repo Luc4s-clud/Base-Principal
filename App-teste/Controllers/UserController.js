@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 
+
 exports.signIn = async (req, res) => {
   try {
     const user = await User.findOne({ where: { ds_email: req.body.email } });
@@ -21,7 +22,6 @@ exports.signIn = async (req, res) => {
     });
   }
 };
-const bcrypt = require('bcrypt');
 
 // ... outros métodos ...
 
