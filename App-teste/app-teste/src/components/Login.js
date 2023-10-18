@@ -55,7 +55,24 @@ function Login() {
         <div className="login-card">
           <h3>Registro</h3>
           <form onSubmit={handleRegister}>
-            {/* ... campos do formulário de registro ... */}
+            <div className="input-group">
+              <label>Email:</label>
+              <input
+                type="email"
+                value={registerEmail}
+                onChange={(e) => setRegisterEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label>Senha:</label>
+              <input
+                type="password"
+                value={registerPassword}
+                onChange={(e) => setRegisterPassword(e.target.value)}
+                required
+              />
+            </div>
             <button type="submit">Registrar</button>
           </form>
           <button onClick={() => setShowRegister(false)}>Voltar ao Login</button>
