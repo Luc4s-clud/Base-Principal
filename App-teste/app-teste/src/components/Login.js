@@ -3,9 +3,9 @@ import axios from 'axios';
 import './Login.css';
 
 function Login() {
-  const [email, setEmail] = useState('');  // Estado para o email no formulário de login
-  const [password, setPassword] = useState('');  // Estado para a senha no formulário de login
-  const [error, setError] = useState('');  // Estado para exibir mensagens de erro
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const [showRegister, setShowRegister] = useState(false);
   const [registerEmail, setRegisterEmail] = useState('');
@@ -15,20 +15,19 @@ function Login() {
     e.preventDefault();
     
     try {
-      const response = await axios.post('http://localhost:3001/login', {
+      const response = await axios.post('http://localhost:3050/login', {
         email: email,
         password: password
       });
       if (response.data && response.data.message) {
         if (response.data.message === "Login bem-sucedido!") {
-          // Aqui você pode redirecionar o usuário, definir tokens, etc.
           alert("Login bem-sucedido!");
         } else {
           setError(response.data.message);
         }
       }
     } catch (err) {
-      setError("Erro ao tentar fazer login. Por favor, tente novamente.");
+      setError(err.response ? err.response.data.message : "Erro ao tentar fazer login. Por favor, tente novamente.");
     }
     
   };
@@ -36,7 +35,7 @@ function Login() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/register', {
+      const response = await axios.post('http://localhost:3050/register', {
         email: registerEmail,
         password: registerPassword
       });
@@ -45,11 +44,12 @@ function Login() {
         setShowRegister(false);
       }
     } catch (err) {
-      alert("Erro ao registrar o usuário. Por favor, tente novamente.");
+      alert(err.response ? err.response.data.message : "Erro ao registrar o usuário. Por favor, tente novamente.");
     }
   };
 
   return (
+    
     <div className="login-container">
       {showRegister ? (
         <div className="login-card">
@@ -113,3 +113,4 @@ function Login() {
 }
 
 export default Login;
+

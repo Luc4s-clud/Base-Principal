@@ -1,12 +1,12 @@
 {
   
   "development": {
-    "username": "postgres",
-    "password": "Luc@$R0dr1G22",
-    "database": "DEECPRD",
+    "username": "root",
+    "password": "admin",
+    "database": "dbadeec",
     "host": "localhost",
-    "dialect": "postgres",
-    "schema" : "dbadeec"
+    "port": 3306,
+    "dialect": "mysql"
   }
 }
 
