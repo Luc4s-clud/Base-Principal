@@ -17,7 +17,7 @@ function Login() {
     try {
       const response = await axios.post('http://localhost:3050/login', {
         email: email,
-        password: password
+        senha: password
       });
       if (response.data && response.data.message) {
         if (response.data.message === "Login bem-sucedido!") {
@@ -37,7 +37,7 @@ function Login() {
     try {
       const response = await axios.post('http://localhost:3050/register', {
         email: registerEmail,
-        password: registerPassword
+        senha: registerPassword
       });
       if (response.data && response.data.message) {
         alert(response.data.message);
