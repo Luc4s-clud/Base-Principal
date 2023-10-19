@@ -10,6 +10,10 @@ function Login() {
   const [showRegister, setShowRegister] = useState(false);
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
+  const [registerName, setRegisterName] = useState('');
+  const [registerCPF, setRegisterCPF] = useState('');
+  const [registerDDD, setRegisterDDD] = useState('');
+  const [registerPhone, setRegisterPhone] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +33,6 @@ function Login() {
     } catch (err) {
       setError(err.response ? err.response.data.message : "Erro ao tentar fazer login. Por favor, tente novamente.");
     }
-    
   };
 
   const handleRegister = async (e) => {
@@ -37,7 +40,12 @@ function Login() {
     try {
       const response = await axios.post('http://localhost:3050/register', {
         email: registerEmail,
-        senha: registerPassword
+        senha: registerPassword,
+        nm_usuario: registerName,
+        nr_cpf: registerCPF,
+        nr_ddd: registerDDD,
+        nr_telefone: registerPhone,
+        // Não é necessário enviar cd_tp_usuario e sn_ativo, pois eles serão definidos no servidor
       });
       if (response.data && response.data.message) {
         alert(response.data.message);
@@ -49,7 +57,6 @@ function Login() {
   };
 
   return (
-    
     <div className="login-container">
       {showRegister ? (
         <div className="login-card">
@@ -70,6 +77,42 @@ function Login() {
                 type="password"
                 value={registerPassword}
                 onChange={(e) => setRegisterPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label>Nome:</label>
+              <input
+                type="text"
+                value={registerName}
+                onChange={(e) => setRegisterName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label>CPF:</label>
+              <input
+                type="text"
+                value={registerCPF}
+                onChange={(e) => setRegisterCPF(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label>DDD:</label>
+              <input
+                type="text"
+                value={registerDDD}
+                onChange={(e) => setRegisterDDD(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label>Telefone:</label>
+              <input
+                type="text"
+                value={registerPhone}
+                onChange={(e) => setRegisterPhone(e.target.value)}
                 required
               />
             </div>
@@ -113,4 +156,3 @@ function Login() {
 }
 
 export default Login;
-
