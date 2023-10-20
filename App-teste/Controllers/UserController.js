@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const db = require('../models');
 const User = db.User;
+const Usuarios = db.Usuarios
 
 
 exports.signIn = async (req, res) => {
@@ -43,7 +44,7 @@ exports.createUser = async (req, res) => {
     }
 
     // 1. Criar o usuário na tabela 'usuarios'
-    const usuario = await db.usuarios.create({
+    const usuario = await Usuarios.create({
       nm_usuario: req.body.nm_usuario,
       nr_cpf: req.body.nr_cpf,
       ds_email: req.body.ds_email,
@@ -61,7 +62,7 @@ exports.createUser = async (req, res) => {
     // 3. Criar o usuário na tabela 'user' usando o 'cd_usuario' obtido
     const hashedPassword = await bcrypt.hash(req.body.senha, 10);
     const user = await User.create({
-      email: req.body.ds_email,
+      ds_email: req.body.ds_email,
       senha: hashedPassword,
       cd_usuario: cd_usuario,
       cd_tp_usuario: 2  // Código de usuário padrão

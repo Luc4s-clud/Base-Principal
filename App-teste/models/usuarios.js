@@ -1,42 +1,58 @@
 module.exports = (sequelize, DataTypes) => {
-    const Usuarios = sequelize.define('Usuarios', {
-      cd_usuario: {
+  const Usuarios = sequelize.define('Usuarios', {
+    cd_usuario: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
+        primaryKey: true, // Adicionado
+        allowNull: true,
         autoIncrement: true,
-      },
+    },
       nm_usuario: {
-        type: DataTypes.STRING,
+          type: DataTypes.STRING,
+          allowNull: false,
       },
       nr_cpf: {
-        type: DataTypes.STRING,
+          type: DataTypes.STRING,
+          allowNull: false,
       },
       ds_email: {
-        type: DataTypes.STRING,
+          type: DataTypes.STRING,
+          allowNull: false,
       },
       nr_ddd: {
-        type: DataTypes.STRING,
+          type: DataTypes.STRING,
+          allowNull: false,
       },
       nr_telefone: {
-        type: DataTypes.STRING,
+          type: DataTypes.STRING,
+          allowNull: false,
       },
       cd_tp_usuario: {
-        type: DataTypes.INTEGER,
+          type: DataTypes.INTEGER,
+          allowNull: false,
       },
       sn_ativo: {
-        type: DataTypes.STRING,
+          type: DataTypes.STRING,
+          allowNull: false,
       },
       dt_cadastro: {
-        type: DataTypes.DATE,
+          type: DataTypes.DATE,
+          allowNull: false,
       },
       hr_cadastro: {
-        type: DataTypes.TIME,
+          type: DataTypes.TIME,
+          allowNull: false,
       },
-    }, {
+  }, {
       tableName: 'usuarios',
       timestamps: false,
-    });
-  
-    return Usuarios;
+  });
+
+  Usuarios.associate = function (models) {
+      Usuarios.hasOne(models.User, {
+          foreignKey: 'cd_usuario',
+          as: 'user',
+      });
   };
-  
+
+  return Usuarios;
+};

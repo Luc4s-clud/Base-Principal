@@ -20,7 +20,7 @@ function Login() {
     
     try {
       const response = await axios.post('http://localhost:3050/login', {
-        email: email,
+        ds_email: email,
         senha: password
       });
       if (response.data && response.data.message) {
@@ -42,7 +42,7 @@ function Login() {
     try {
       
       const response = await axios.post('http://localhost:3050/register', {
-        email: registerEmail,
+        ds_email: registerEmail,
         senha: registerPassword,
         nm_usuario: registerName,
         nr_cpf: registerCPF,
@@ -69,7 +69,7 @@ function Login() {
             <div className="input-group">
               <label>Email:</label>
               <input
-                type="email"
+                type="ds_email"
                 value={registerEmail}
                 onChange={(e) => setRegisterEmail(e.target.value)}
                 required
@@ -131,7 +131,7 @@ function Login() {
             <div className="input-group">
               <label>Email:</label>
               <input
-                type="email"
+                type="ds_email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
