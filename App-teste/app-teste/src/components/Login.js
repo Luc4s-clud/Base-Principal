@@ -33,11 +33,14 @@ function Login() {
     } catch (err) {
       setError(err.response ? err.response.data.message : "Erro ao tentar fazer login. Por favor, tente novamente.");
     }
+    
   };
+ // console.log('ds_email:', req.body.ds_email);  // Adicione esta linha para verificar o valor de ds_email
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
+      
       const response = await axios.post('http://localhost:3050/register', {
         email: registerEmail,
         senha: registerPassword,
@@ -57,6 +60,7 @@ function Login() {
   };
 
   return (
+    
     <div className="login-container">
       {showRegister ? (
         <div className="login-card">

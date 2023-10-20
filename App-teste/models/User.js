@@ -1,31 +1,39 @@
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    user_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     senha: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     cd_usuario: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      references: {
+        model: 'usuarios',
+        key: 'cd_usuario'
+      }
     },
     cd_tp_usuario: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+      references: {
+        model: 'tipo_usuario',
+        key: 'cd_tp_usuario'
+      }
+    }    
   }, {
-    tableName: 'user', // Nome da tabela no banco de dados
-  });
-
-  User.associate = function(models) {
-    User.belongsTo(models.Usuarios, {
-      foreignKey: 'cd_usuario',
-      as: 'usuarios',
-    });
-  };
+    tableName: 'user'
+  },
+  {
+    tableName: 'user',
+    timestamps: false  // Isto desativa os campos createdAt e updatedAt
+});
 
   return User;
 };
