@@ -1,5 +1,6 @@
 const cors = require('cors');  // Importe o pacote cors
 const express = require('express');
+<<<<<<< Updated upstream
 
 const db = require('./models/index');  // Atualize o caminho conforme necessário
 db.sequelize.authenticate()
@@ -14,6 +15,13 @@ const app = express();
 const PORT = 3050;
 
 app.use(express.json());  // Adicione esta linha
+=======
+const cors = require('cors');  // Importe o pacote cors
+
+const app = express();
+const PORT = 3001;
+
+>>>>>>> Stashed changes
 const routes = require('./routes/routes');
 
 app.use(cors());  // Use o middleware cors
