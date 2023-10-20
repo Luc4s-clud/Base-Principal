@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
+import logoImage from '../logo500.png';
+
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -13,23 +15,22 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await axios.post('http://localhost:3050/login', {
         email: email,
         senha: password
       });
       if (response.data && response.data.message) {
-        if (response.data.message === "Login bem-sucedido!") {
-          alert("Login bem-sucedido!");
+        if (response.data.message === 'Login bem-sucedido!') {
+          alert('Login bem-sucedido!');
         } else {
           setError(response.data.message);
         }
       }
     } catch (err) {
-      setError(err.response ? err.response.data.message : "Erro ao tentar fazer login. Por favor, tente novamente.");
+      setError(err.response ? err.response.data.message : 'Erro ao tentar fazer login. Por favor, tente novamente.');
     }
-    
   };
 
   const handleRegister = async (e) => {
@@ -44,19 +45,23 @@ function Login() {
         setShowRegister(false);
       }
     } catch (err) {
-      alert(err.response ? err.response.data.message : "Erro ao registrar o usuário. Por favor, tente novamente.");
+      alert(err.response ? err.response.data.message : 'Erro ao registrar o usuário. Por favor, tente novamente.');
     }
   };
 
   return (
-    
     <div className="login-container">
       {showRegister ? (
         <div className="login-card">
-          <h3>Registro</h3>
+          <img
+        src={logoImage}
+        alt="Logo"
+        className="login-image"
+        />
+          <h3>Fazer Registro</h3>
           <form onSubmit={handleRegister}>
             <div className="input-group">
-              <label>Email:</label>
+              <label>Digite seu E-mail:</label>
               <input
                 type="email"
                 value={registerEmail}
@@ -65,7 +70,7 @@ function Login() {
               />
             </div>
             <div className="input-group">
-              <label>Senha:</label>
+              <label>Digite sua Senha:</label>
               <input
                 type="password"
                 value={registerPassword}
@@ -79,10 +84,15 @@ function Login() {
         </div>
       ) : (
         <div className="login-card">
-          <h2>Login</h2>
+          <img
+        src={logoImage}
+        alt="Logo"
+        className="login-image"
+        />
+          <h2>Fazer Login</h2>
           <form onSubmit={handleSubmit}>
             <div className="input-group">
-              <label>Email:</label>
+              <label>Digite seu E-mail:</label>
               <input
                 type="email"
                 value={email}
@@ -91,7 +101,7 @@ function Login() {
               />
             </div>
             <div className="input-group">
-              <label>Senha:</label>
+              <label>Digite sua Senha:</label>
               <input
                 type="password"
                 value={password}
@@ -104,7 +114,7 @@ function Login() {
           {error && <p className="error-message">{error}</p>}
           <div className="register-section">
             <p>Não tem uma conta?</p>
-            <button onClick={() => setShowRegister(true)}>Criar Conta</button>
+            <button onClick={() => setShowRegister(true)}>Registre-se</button>
           </div>
         </div>
       )}
@@ -113,4 +123,3 @@ function Login() {
 }
 
 export default Login;
-
