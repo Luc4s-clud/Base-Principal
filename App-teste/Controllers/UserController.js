@@ -61,7 +61,7 @@ exports.createUser = async (req, res) => {
 
     // 3. Criar o usuário na tabela 'user' usando o 'cd_usuario' obtido
     const hashedPassword = await bcrypt.hash(req.body.senha, 10);
-    const user = await User.create({
+    const userCreated = await User.create({
       ds_email: req.body.ds_email,
       senha: hashedPassword,
       cd_usuario: cd_usuario,
