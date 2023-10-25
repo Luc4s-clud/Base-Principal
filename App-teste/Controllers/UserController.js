@@ -6,8 +6,8 @@ const Usuarios = db.Usuarios
 
 exports.signIn = async (req, res) => {
   try {
-    console.log("Tentando encontrar usuário com o e-mail:", req.body.email);
-    const user = await User.findOne({ where: { email: req.body.email } });
+    console.log("Tentando encontrar usuário com o e-mail:", req.body.ds_email);
+    const user = await User.findOne({ where: { ds_email: req.body.ds_email } });
     console.log("Usuário recuperado:", user);
     if (!req.body.senha || (user && !user.senha)) {
       console.log("req.body.senha:", req.body.senha);

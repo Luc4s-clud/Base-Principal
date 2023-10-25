@@ -17,6 +17,10 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    console.log('E-mail:', email); // Adicione esta linha para verificar o valor do e-mail
+    console.log('Senha:', password); // Adicione esta linha para verificar o valor da senha
+
     
     try {
       const response = await axios.post('http://localhost:3050/login', {
