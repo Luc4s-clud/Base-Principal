@@ -12,13 +12,22 @@ function Login() {
   const [showRegister, setShowRegister] = useState(false);
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
+  const [registerName, setRegisterName] = useState('');
+  const [registerCPF, setRegisterCPF] = useState('');
+  const [registerDDD, setRegisterDDD] = useState('');
+  const [registerPhone, setRegisterPhone] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
+    
+
+
+
     try {
       const response = await axios.post('http://localhost:3050/login', {
-        email: email,
+        ds_email: email,
         senha: password
       });
       if (response.data && response.data.message) {
@@ -32,13 +41,20 @@ function Login() {
       setError(err.response ? err.response.data.message : 'Erro ao tentar fazer login. Por favor, tente novamente.');
     }
   };
+ // console.log('ds_email:', req.body.ds_email);  // Adicione esta linha para verificar o valor de ds_email
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
+      
       const response = await axios.post('http://localhost:3050/register', {
-        email: registerEmail,
-        senha: registerPassword
+        ds_email: registerEmail,
+        senha: registerPassword,
+        nm_usuario: registerName,
+        nr_cpf: registerCPF,
+        nr_ddd: registerDDD,
+        nr_telefone: registerPhone,
+        // Não é necessário enviar cd_tp_usuario e sn_ativo, pois eles serão definidos no servidor
       });
       if (response.data && response.data.message) {
         alert(response.data.message);
@@ -63,7 +79,7 @@ function Login() {
             <div className="input-group">
               <label>Digite seu E-mail:</label>
               <input
-                type="email"
+                type="ds_email"
                 value={registerEmail}
                 onChange={(e) => setRegisterEmail(e.target.value)}
                 required
@@ -75,6 +91,42 @@ function Login() {
                 type="password"
                 value={registerPassword}
                 onChange={(e) => setRegisterPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label>Nome:</label>
+              <input
+                type="text"
+                value={registerName}
+                onChange={(e) => setRegisterName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label>CPF:</label>
+              <input
+                type="text"
+                value={registerCPF}
+                onChange={(e) => setRegisterCPF(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label>DDD:</label>
+              <input
+                type="text"
+                value={registerDDD}
+                onChange={(e) => setRegisterDDD(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label>Telefone:</label>
+              <input
+                type="text"
+                value={registerPhone}
+                onChange={(e) => setRegisterPhone(e.target.value)}
                 required
               />
             </div>
@@ -94,7 +146,7 @@ function Login() {
             <div className="input-group">
               <label>Digite seu E-mail:</label>
               <input
-                type="email"
+                type="ds_email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
