@@ -1,6 +1,4 @@
-const User = require('../models/User');
 const bcrypt = require('bcrypt');
-<<<<<<< Updated upstream
 const db = require('../models');
 const User = db.User;
 const Usuarios = db.Usuarios
@@ -76,50 +74,4 @@ exports.createUser = async (req, res) => {
       message: error.message || "Erro ao criar usuário."
     });
   }
-=======
-
-exports.signIn = async (req, res) => {
-    try {
-        console.log("Tentando encontrar usuário com o e-mail:", req.body.email);
-        const user = await User.findOne({ where: { ds_email: req.body.email } });
-        if (!user) {
-            return res.status(401).send({ message: 'E-mail ou senha incorretos!' });
-        }
-        
-        console.log("Comparando senha fornecida com senha armazenada.");
-        const validPassword = await bcrypt.compare(req.body.password, user.password);
-        if (!validPassword) {
-            return res.status(401).send({ message: 'E-mail ou senha incorretos!' });
-        }
-
-        res.status(200).send({ message: 'Login bem-sucedido!' });
-    } catch (error) {
-        console.error("Erro ao tentar fazer login:", error);
-        res.status(500).send({
-            message: error.message || "Erro ao tentar fazer login."
-        });
-    }
-};
-
-exports.createUser = async (req, res) => {
-    try {
-        console.log("Hasheando senha fornecida.");
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        
-        console.log("Tentando criar novo usuário.");
-        const user = await User.create({
-            ds_name: req.body.name,
-            ds_email: req.body.email,
-            password: hashedPassword,
-            dt_created: new Date(),
-            dt_updated: new Date()
-        });
-
-        res.status(201).send({ message: 'Usuário criado com sucesso!' });
-    } catch (error) {
-        res.status(500).send({
-            message: error.message || "Erro ao criar usuário."
-        });
-    }
->>>>>>> Stashed changes
 };
