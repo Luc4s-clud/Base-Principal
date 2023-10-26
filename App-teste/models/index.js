@@ -31,7 +31,7 @@ fs
     db[model.name] = model;
   });
 
-  db.Usuarios = require('./usuarios')(sequelize, Sequelize.DataTypes); // Carregar o modelo Usuarios
+  db.Usuarios = require('./Usuarios')(sequelize, Sequelize.DataTypes); // Carregar o modelo Usuarios
   
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
