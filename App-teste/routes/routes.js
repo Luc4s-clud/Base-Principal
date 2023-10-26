@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/UserController');
-
+const home = require ('../app-teste/src/components/pages/Home');
 
 // Exemplo de rota
 router.get('/api/hello', (req, res) => {
@@ -9,6 +9,7 @@ router.get('/api/hello', (req, res) => {
 });
 router.post('/login', UserController.signIn);
 router.post('/register', UserController.createUser);
+
 
 // Aqui, você adicionará mais rotas conforme necessário
 

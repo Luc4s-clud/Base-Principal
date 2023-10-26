@@ -34,7 +34,7 @@ function Login() {
       });
       if (response.data && response.data.message) {
         if (response.data.message === 'Login bem-sucedido!') {
-          alert('Login bem-sucedido!');
+          //alert('Login bem-sucedido!');
           navigate("/home");
         } else {
           setError(response.data.message);
