@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Login.css';
+import '../pages/Login.css';
 import logoImage from '../images/logo500.png';
+import { useNavigate } from "react-router-dom";
 
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const [showRegister, setShowRegister] = useState(false);
   const [registerEmail, setRegisterEmail] = useState('');
@@ -33,6 +35,7 @@ function Login() {
       if (response.data && response.data.message) {
         if (response.data.message === 'Login bem-sucedido!') {
           alert('Login bem-sucedido!');
+          navigate("/home");
         } else {
           setError(response.data.message);
         }
@@ -69,11 +72,6 @@ function Login() {
     <div className="login-container">
       {showRegister ? (
         <div className="login-card">
-          <img
-        src={logoImage}
-        alt="Logo"
-        className="login-image"
-        />
           <h3>Fazer Registro</h3>
           <form onSubmit={handleRegister}>
             <div className="input-group">
@@ -95,7 +93,7 @@ function Login() {
               />
             </div>
             <div className="input-group">
-              <label>Nome:</label>
+              <label>Digite seu Nome:</label>
               <input
                 type="text"
                 value={registerName}
@@ -104,7 +102,7 @@ function Login() {
               />
             </div>
             <div className="input-group">
-              <label>CPF:</label>
+              <label>Digite seu CPF:</label>
               <input
                 type="text"
                 value={registerCPF}
@@ -113,7 +111,7 @@ function Login() {
               />
             </div>
             <div className="input-group">
-              <label>DDD:</label>
+              <label>Digite o DDD:</label>
               <input
                 type="text"
                 value={registerDDD}
@@ -122,7 +120,7 @@ function Login() {
               />
             </div>
             <div className="input-group">
-              <label>Telefone:</label>
+              <label>Digite seu Telefone:</label>
               <input
                 type="text"
                 value={registerPhone}
