@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
-import logoImage from '../logo500.png';
+import logoImage from '../images/logo500.png';
 
 
 function Login() {
