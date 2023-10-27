@@ -4,7 +4,6 @@ import '../pages/Login.css';
 import logoImage from '../images/logo500.png';
 import { useNavigate } from "react-router-dom";
 
-
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,12 +20,6 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-
-    
-
-
-
     try {
       const response = await axios.post('http://localhost:3050/login', {
         ds_email: email,
@@ -34,7 +27,9 @@ function Login() {
       });
       if (response.data && response.data.message) {
         if (response.data.message === 'Login bem-sucedido!') {
-          alert('Login bem-sucedido!');
+          // Armazena o token no localStorage
+          localStorage.setItem('token', response.data.token);
+          //alert('Login bem-sucedido!');
           navigate("/home");
         } else {
           setError(response.data.message);
@@ -44,12 +39,10 @@ function Login() {
       setError(err.response ? err.response.data.message : 'Erro ao tentar fazer login. Por favor, tente novamente.');
     }
   };
- // console.log('ds_email:', req.body.ds_email);  // Adicione esta linha para verificar o valor de ds_email
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      
       const response = await axios.post('http://localhost:3050/register', {
         ds_email: registerEmail,
         senha: registerPassword,
@@ -57,7 +50,6 @@ function Login() {
         nr_cpf: registerCPF,
         nr_ddd: registerDDD,
         nr_telefone: registerPhone,
-        // Não é necessário enviar cd_tp_usuario e sn_ativo, pois eles serão definidos no servidor
       });
       if (response.data && response.data.message) {
         alert(response.data.message);
