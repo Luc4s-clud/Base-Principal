@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../pages/Home.css';
 import Uniedu from '../images/uniedu1.png';
-import { isButtonElement } from 'react-router-dom/dist/dom';
 
 function Home() {
   const navigate = useNavigate();
