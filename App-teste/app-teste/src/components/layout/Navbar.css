@@ -1,0 +1,47 @@
+/* Estilo para a barra de navegação */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000000;
+    padding: 10px;
+    color: white;
+  }
+  
+  /* Estilo para o logotipo */
+  .logo {
+    width: 110px;
+    height: auto;
+  }
+  
+  /* Estilo para o contêiner flex que envolve a lista */
+  .link-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Estilo para a lista de links */
+  .link-list {
+    list-style: none;
+    display: flex;
+    margin: 0; 
+    padding: 0;
+  }
+  
+  /* Estilo para os itens da lista de links */
+  .link-item {
+    margin-right: 10px;
+  }
+  
+  /* Estilo para o botão "Sair" */
+  .logout-button {
+    background-color: #0168d6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 15px;
+    cursor: pointer;
+    width: 100px;
+  }
+  
+  

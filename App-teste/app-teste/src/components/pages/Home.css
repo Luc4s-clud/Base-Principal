@@ -13,16 +13,12 @@ h1 {
   font-size: 20px;
   text-align: center;
 }
-button {
-  width: 100%;
-  padding: 12px 15px;
-  background-color: #0168d6;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-  margin-bottom: 5px;
+
+.uniedu {
+  height: 30vmin !important;
+  pointer-events: none;
+  margin-right: 30px !important;
 }
+
+
+

@@ -61,9 +61,9 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
+    <div className="register-container">
       {showRegister ? (
-        <div className="login-card">
+        <div className="register-card">
           <h3>Fazer Registro</h3>
           <form onSubmit={handleRegister}>
             <div className="input-group">
