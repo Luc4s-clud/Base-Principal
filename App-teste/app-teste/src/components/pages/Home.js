@@ -4,6 +4,7 @@ import '../pages/Home.css';
 import homelogo from '../images/logo-site-preto.png';
 
 
+
 function Home() {
   const navigate = useNavigate();
 

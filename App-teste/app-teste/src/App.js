@@ -10,6 +10,7 @@ import Certificados from './components/pages/Certificados';
 import NavBar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 
+
 function App() {
     return (
         <BrowserRouter>

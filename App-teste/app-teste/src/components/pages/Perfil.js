@@ -1,6 +1,7 @@
 import React from 'react';
 
-function Perfil() {
+
+function perfil() {
   return (
     <div>
       <p>Perfil</p>
@@ -9,4 +10,4 @@ function Perfil() {
   );
 }
 
-export default Perfil;
+export default perfil;
