@@ -9,38 +9,42 @@ exports.signIn = async (req, res) => {
     console.log("Tentando encontrar usuário com o e-mail:", req.body.ds_email);
     const user = await User.findOne({ where: { ds_email: req.body.ds_email } });
     console.log("Usuário recuperado:", user);
-    if (!req.body.senha || (user && !user.senha)) {
+    if (!user || !req.body.senha) {
       console.log("req.body.senha:", req.body.senha);
       console.log("user.senha (se aplicável):", user && user.senha);
       console.log("Senha fornecida:", req.body.senha);
-      console.log("Hash da senha armazenada:", user.senha);
-      const validPassword = await bcrypt.compare(req.body.senha, user.senha);
-      console.log("Resultado da comparação de senha:", validPassword);
-      return res.status(400).send({ message: "Dados de senha ausentes." });
+      console.log("Hash da senha armazenada:", user && user.senha);
+      return res.status(400).send({ message: "E-mail ou senha incorretos." });
     }
-    console.log("Verificando senha...");
 
+    console.log("Verificando senha...");
     const validPassword = await bcrypt.compare(req.body.senha, user.senha);
 
     if (!validPassword) {
       return res.status(400).send({ message: "E-mail ou senha incorretos." });
     }
 
-    res.send({ message: "Login bem-sucedido!" });
+    console.log("Login bem-sucedido!");
+    res.send({ message: "Login bem-sucedido!", userId: user.cd_usuario });
+
+    console.log({ message: "Login bem-sucedido!", userId: user.cd_usuario });
+
   } catch (error) {
     console.error("Erro durante a tentativa de login:", error);
-    res.status(500).send({ 
-      message: "Erro interno do servidor." });
     res.status(500).send({
       message: error.message || "Erro ao tentar fazer login."
     });
   }
 };
 
+
+
+
+
 exports.createUser = async (req, res) => {
   try {
     if (!req.body.senha) {
-        return res.status(400).send({ message: "Dados de senha ausentes." });
+      return res.status(400).send({ message: "Dados de senha ausentes." });
     }
 
     // 1. Criar o usuário na tabela 'usuarios'
@@ -75,3 +79,19 @@ exports.createUser = async (req, res) => {
     });
   }
 };
+
+exports.getUser = async (req, res) => {
+  try {
+    const username = req.params.username; // Obter o nome de usuário dos parâmetros da rota
+    const user = await Usuarios.findOne({ where: { nm_usuario: username } }); // Buscar o usuário pelo nome
+    if (!user) {
+      return res.status(404).send({ message: 'Usuário não encontrado.' });
+    }
+    res.send(user);
+  } catch (error) {
+    res.status(500).send({
+      message: error.message || 'Erro ao buscar usuário.'
+    });
+  }
+};
+

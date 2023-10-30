@@ -11,6 +11,7 @@ router.get('/api/hello', (req, res) => {
 });
 router.post('/login', UserController.signIn);
 router.post('/register', UserController.createUser);
+router.get('/user/:id', UserController.getUser);
 
 
 // Aqui, você adicionará mais rotas conforme necessário

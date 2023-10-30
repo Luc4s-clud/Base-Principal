@@ -25,11 +25,18 @@ function Login() {
         ds_email: email,
         senha: password
       });
+      console.log('Resposta do servidor:', response.data); // Adicione esta linha
       if (response.data && response.data.message) {
         if (response.data.message === 'Login bem-sucedido!') {
           // Armazena o token no localStorage
           localStorage.setItem('token', response.data.token);
-          //alert('Login bem-sucedido!');
+         // console.log ('token', response.data.token );
+          // Armazena o userId no localStorage
+          localStorage.setItem('userId', response.data.userId);
+  
+          localStorage.setItem('userId', response.data.nm_usuario);
+
+  
           navigate("/home");
         } else {
           setError(response.data.message);
@@ -39,6 +46,8 @@ function Login() {
       setError(err.response ? err.response.data.message : 'Erro ao tentar fazer login. Por favor, tente novamente.');
     }
   };
+  
+
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -127,10 +136,10 @@ function Login() {
       ) : (
         <div className="login-card">
           <img
-        src={logoImage}
-        alt="Logo"
-        className="login-image"
-        />
+            src={logoImage}
+            alt="Logo"
+            className="login-image"
+          />
           <h2>Fazer Login</h2>
           <form onSubmit={handleSubmit}>
             <div className="input-group">
