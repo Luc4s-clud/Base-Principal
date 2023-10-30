@@ -3,22 +3,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   background-color: #f0f0f0;
+  min-height: 100vh; /* Defina a altura mínima da página inteira */
+  padding: 4em;
+  text-align: center; /* Centralize o texto horizontalmente */
 }
 
 h1 {
-  color: #333;
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
 }
 
-.uniedu {
-  height: 30vmin !important;
-  pointer-events: none;
-  margin-right: 30px !important;
+h1 span {
+  color: #ffffff;
+  padding: 0 0.2em;
+  background-color: #222;
 }
 
+p {
+  margin-bottom: 1.5em;
+  color: #7b7b7b;
+}
 
-
+.home-logo{
+  width: 350px;
+  margin: 2em 0;
+}

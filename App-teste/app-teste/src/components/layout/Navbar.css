@@ -1,16 +1,17 @@
 /* Estilo para a barra de navegação */
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #000000;
-    padding: 10px;
-    color: white;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #222;
+  padding: 15px;
+  color: white;
+  height: 3.5em; /* Defina a altura desejada para a barra de navegação */
+}
   
   /* Estilo para o logotipo */
   .logo {
-    width: 110px;
+    width: 9em;
     height: auto;
   }
   
@@ -24,8 +25,7 @@
   .link-list {
     list-style: none;
     display: flex;
-    margin: 0; 
-    padding: 0;
+    align-items: center;
   }
   
   /* Estilo para os itens da lista de links */
@@ -35,13 +35,29 @@
   
   /* Estilo para o botão "Sair" */
   .logout-button {
-    background-color: #0168d6;
-    color: white;
+    background-color: #fff;
+    color: #222;
     border: none;
     border-radius: 5px;
     padding: 6px 15px;
     cursor: pointer;
     width: 100px;
   }
+
+  .logout-button:hover {
+    background-color: #a4a6a7; /* Altera a cor de fundo ao passar o mouse */
+}
   
-  
+  /* Estilos Para os Itens */
+  .item {
+    margin-right: 1.5em;
+  }
+
+  .item a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .item a:hover {
+    color: #7f8080;
+  }

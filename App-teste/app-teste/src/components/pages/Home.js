@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavBar from '../layout/Navbar'; // Importe o componente de barra de navegação
 import '../pages/Home.css';
-import Uniedu from '../images/uniedu1.png';
+import homelogo from '../images/logo-site-preto.png';
+
 
 function Home() {
   const navigate = useNavigate();
@@ -14,16 +14,19 @@ function Home() {
     }
   }, [navigate]);
 
-  return (
-    <div>
-      <NavBar /> {/* Renderize a barra de navegação na rota /home */}
-      <div className="home-container">
-        <h1>Controle de Horas - <span> Uniedu </span> </h1>
-        <p>Cadastro de Bolsas</p>
-        <img src={Uniedu} alt='uniedu' />
-      </div>
+return (
+  <div>
+    <div className="home-container">
+      <h1>
+        Bem vindo ao <span>Controle de Horas - Uniedu</span>
+      </h1>
+      <p>Cadastre-se em uma Demanda!</p>
+      <a href="/demandas">Escolher Demanda </a>
+      <img src={homelogo} alt='homelogo' className="home-logo" />
     </div>
-  );
+  </div>
+);
+  
 }
 
 export default Home;
