@@ -27,7 +27,7 @@ function Perfil() {
         })
         .catch((error) => {
           console.log('Erro ao buscar dados do usuário:', error);
-          navigate('/login');
+          
         });
     }
   }, [navigate]);
