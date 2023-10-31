@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../pages/Home.css';
-import homelogo from '../images/logo-site-preto.png';
+import homelogo from '../images/logo-site-preto-menor.png';
 
 
 

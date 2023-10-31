@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100px;
   background: linear-gradient(45deg, #dbdbdb, #f4f4f4);
 }
 
@@ -36,9 +36,12 @@
 }
 
 .login-image {
-  height: 30vmin !important;
-  pointer-events: none;
-  margin-right: 30px !important;
+  max-width: 80%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 h2 {
@@ -92,7 +95,7 @@ h3 {
 button {
   width: 100%;
   padding: 12px 15px;
-  background-color: #0168d6;
+  background-color: #222;
   color: white;
   border: none;
   border-radius: 5px;
@@ -104,7 +107,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #7f8080;
   transform: translateY(-2px);
 }
 
