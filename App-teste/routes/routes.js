@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/UserController');
-const { default: Home } = require('../app-teste/src/components/pages/Home');
 
 
 
