@@ -1,4 +1,4 @@
-import Uniedu from '../images/uniedu1.png';
+import Uniedu from '../images/uniedu-branco.png';
 import './Footer.css';
 
 function Footer() {
@@ -6,13 +6,17 @@ function Footer() {
         <footer className='footer'>
             <ul className='social-list'>
                 <li>
-                    <div className="image-link-container">
-                        <a href="https://bolsasuniedu.sed.sc.gov.br/wwpbaseobjects.home.aspx" target="_blank" rel="noreferrer" className="image-link">
+                    <a href="https://bolsasuniedu.sed.sc.gov.br/wwpbaseobjects.home.aspx" target="_blank" rel="noreferrer" className="image-link">
+                        <div class="image-container">
                             <img src={Uniedu} alt="uniedu" className="uniedu-logo" />
-                        </a>
-                    </div>
+                            <div class="overlay"></div>
+                        </div>
+                    </a>
                 </li>
             </ul>
+            <p className='copy_right'>
+                <span>Controle de Horas - Uniedu</span> &copy; 2023
+            </p>
         </footer>
     )
 }

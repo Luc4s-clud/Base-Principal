@@ -22,20 +22,42 @@
 }
 
 .uniedu-logo {
-    height: 7vmin !important;
+    height: 15vmin !important;
     pointer-events: none;
 }
 
-.image-link-container {
-    display: inline-block;
-    background-color: white;
-    border-radius: 100%;
-    padding: 15px;
-    z-index: 2; /* Certifique-se de que o círculo fique sobre o fundo azul do footer */
+.image-container {
+    position: relative;
 }
 
-.image-link {
-    display: block;
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+/* Estilo para a sobreposição colorida */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    background-color: transparent; /* Cor de sobreposição inicial (transparente) */
+    transition: background-color 0.3s; /* Adiciona uma transição suave à mudança de cor */
+}
+
+/* Quando o mouse passa por cima da imagem, altere a cor de sobreposição */
+.image-container:hover .overlay {
+    background-color: #ffbb33; /* Cor desejada para a sobreposição */
+}
+
+
+
+.copy_right {
+    margin-top: -1em;
+}
+
+.copy_right span{
+    font-weight: bold;
+    color: #ffbb33;
 }

@@ -45,19 +45,32 @@
   }
 
   .logout-button:hover {
-    background-color: #7f8080; /* Altera a cor de fundo ao passar o mouse */
+    background-color: #ffbb33; /* Altera a cor de fundo ao passar o mouse */
 }
   
   /* Estilos Para os Itens */
   .item {
     margin-right: 1.5em;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s; /* Adiciona uma transição suave de 0.2 segundos ao tamanho */
   }
-
+  
+  /* Quando o mouse passa por cima do item, aumente o tamanho (scale) */
+  .item:hover {
+    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+  }
+  
+  /* Restaure o tamanho original quando não estiver mais em foco */
   .item a {
-    color: #fff;
+    display: block;
+    padding: 10px;
     text-decoration: none;
+    color: #fff;
   }
-
+  
+  /* Quando o mouse passa por cima do link, altere a cor */
   .item a:hover {
-    color: #7f8080;
+    color: #ffbb33;
   }
+  

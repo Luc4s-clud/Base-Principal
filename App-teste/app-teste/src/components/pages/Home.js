@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../pages/Home.css';
-import homelogo from '../images/logo-site-preto-menor.png';
+import homelogo from '../images/logo-site-preto.png';
+import LinkButton from '../layout/LinkButton';
 
 
 
@@ -22,7 +23,7 @@ return (
         Bem vindo ao <span>Controle de Horas - Uniedu</span>
       </h1>
       <p>Cadastre-se em uma Demanda!</p>
-      <a href="/demandas">Escolher Demanda </a>
+      <LinkButton to="/demandas" text="Escolher demanda" />
       <img src={homelogo} alt='homelogo' className="home-logo" />
     </div>
   </div>

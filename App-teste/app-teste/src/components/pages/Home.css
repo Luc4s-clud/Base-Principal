@@ -15,7 +15,7 @@ h1 {
 }
 
 h1 span {
-  color: #ffffff;
+  color: #ffbb33;
   padding: 0 0.2em;
   background-color: #222;
 }
@@ -26,6 +26,6 @@ p {
 }
 
 .home-logo{
-  width: 350px;
-  height: 350px;
+  width: 500px;
+  height: 500px;
 }
