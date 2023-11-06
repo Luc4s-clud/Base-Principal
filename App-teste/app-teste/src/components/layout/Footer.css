@@ -28,6 +28,7 @@
 
 .image-container {
     position: relative;
+    overflow: hidden; /* Esconde as partes transparentes da imagem */
 }
 
 .image-container img {
