@@ -22,8 +22,13 @@
 }
 
 .uniedu-logo {
-    height: 15vmin !important;
-    pointer-events: none;
+    height: 7vmin;
+    margin-right: 35px;
+    transition: transform 0.2s;
+}
+
+.uniedu-logo:hover {
+    transform: scale(1.1);
 }
 
 .image-container {
@@ -31,31 +36,8 @@
     overflow: hidden; /* Esconde as partes transparentes da imagem */
 }
 
-.image-container img {
-    width: 100%;
-    height: auto;
-}
-
-/* Estilo para a sobreposição colorida */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: transparent; /* Cor de sobreposição inicial (transparente) */
-    transition: background-color 0.3s; /* Adiciona uma transição suave à mudança de cor */
-}
-
-/* Quando o mouse passa por cima da imagem, altere a cor de sobreposição */
-.image-container:hover .overlay {
-    background-color: #ffbb33; /* Cor desejada para a sobreposição */
-}
-
-
-
 .copy_right {
-    margin-top: -1em;
+    margin-top: 1em;
 }
 
 .copy_right span{

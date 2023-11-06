@@ -1,4 +1,4 @@
-import Uniedu from '../images/uniedu-branco.png';
+import Uniedu from '../images/uniedu1.png';
 import './Footer.css';
 
 function Footer() {
