@@ -21,24 +21,23 @@ function Perfil() {
     if (!token) {
       navigate('/login');
     } else {
-      axios.get(`http://localhost:3050/user:id/${userId}`, { headers: { Authorization: `Bearer ${token}` } })
+      axios.get(`http://localhost:3050/user/${userId}`, { headers: { Authorization: `Bearer ${token}` } })
         .then((response) => {
-          setUser(response.data);
+          if (response.data) {
+            setUser(response.data);
+          }
         })
         .catch((error) => {
           console.log('Erro ao buscar dados do usuário:', error);
-          
         });
     }
   }, [navigate]);
-  
-
 
   return (
     <div className="perfil-container">
       <h1>Perfil</h1>
       <div className="perfil-card">
-        <h2>{user.nome}</h2>
+        <h2>{user.nm_usuario}</h2>
         <p><strong>Email:</strong> {user.ds_email}</p>
         <p><strong>Telefone:</strong> {user.nr_telefone}</p>
         <p><strong>CPF:</strong> {user.nr_cpf}</p>
