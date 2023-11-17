@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Importe o axios
+import axios from 'axios';
+import PerfilView from './PerfilView'; // Importando o componente de apresentação
 
 function Perfil() {
   const navigate = useNavigate();
@@ -15,8 +16,6 @@ function Perfil() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
-  
-    console.log('UserId armazenado:', userId);
   
     if (!token) {
       navigate('/login');
@@ -33,17 +32,7 @@ function Perfil() {
     }
   }, [navigate]);
 
-  return (
-    <div className="perfil-container">
-      <h1>Perfil</h1>
-      <div className="perfil-card">
-        <h2>{user.nm_usuario}</h2>
-        <p><strong>Email:</strong> {user.ds_email}</p>
-        <p><strong>Telefone:</strong> {user.nr_telefone}</p>
-        <p><strong>CPF:</strong> {user.nr_cpf}</p>
-      </div>
-    </div>
-  );
+  return <PerfilView user={user} />; // Renderizando o componente de apresentação
 }
 
 export default Perfil;
