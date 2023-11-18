@@ -2,11 +2,11 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   background-color: #222;
   padding: 15px;
   color: white;
-  height: 3.5em; /* Defina a altura desejada para a barra de navegação */
+  height: 3.5em;
 }
   
   /* Estilo para o logotipo */
@@ -18,7 +18,7 @@
   /* Estilo para o contêiner flex que envolve a lista */
   .link-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
   }
   
   /* Estilo para a lista de links */
@@ -30,23 +30,8 @@
   
   /* Estilo para os itens da lista de links */
   .link-item {
-    margin-right: 10px;
+    margin-right: 10px; 
   }
-  
-  /* Estilo para o botão "Sair" */
-  .logout-button {
-    background-color: #fff;
-    color: #222;
-    border: none;
-    border-radius: 5px;
-    padding: 6px 15px;
-    cursor: pointer;
-    width: 100px;
-  }
-
-  .logout-button:hover {
-    background-color: #ffbb33; /* Altera a cor de fundo ao passar o mouse */
-}
   
   /* Estilos Para os Itens */
   .item {
@@ -73,4 +58,45 @@
   .item a:hover {
     color: #ffbb33;
   }
+
+
+  .item2 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    padding: 6px 15px;
+    cursor: pointer;
+  }
   
+  .item2-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .item2 img {
+    width: 50px;
+    height: auto;
+    transition: opacity 0.2s;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .item2 div {
+    margin-top: -1px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer; /* Adicionar cursor pointer para indicar interatividade */
+    transition: color 0.2s, transform 0.2s; /* Adicionado transição de cor e tamanho ao passar o mouse */
+  }
+  
+  .item2:hover div {
+    color: #ffbb33; /* Alterar cor ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+  }
+
+  a {
+    text-decoration: none !important;
+  }

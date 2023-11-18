@@ -13,7 +13,7 @@ function Certificados() {
 
   return (
     <div>
-      <p>Certificados</p>
+      <h1>Certificados</h1>
       {/* Restante do conteúdo da página Certificados */}
     </div>
   );

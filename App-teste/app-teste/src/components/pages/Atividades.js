@@ -13,7 +13,7 @@ function Atividades() {
 
   return (
     <div>
-      <p>Atividades</p>
+      <h1>Atividades</h1>
       {/* Restante do conteúdo da página Atividades */}
     </div>
   );

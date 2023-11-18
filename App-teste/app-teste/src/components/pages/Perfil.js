@@ -4,6 +4,10 @@ import axios from 'axios'; // Importe o axios
 
 function Perfil() {
   const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  }
   const [user, setUser] = useState({
     nm_usuario: '',
     nr_cpf: '',
@@ -42,6 +46,7 @@ function Perfil() {
         <p><strong>Email:</strong> {user.ds_email}</p>
         <p><strong>Telefone:</strong> {user.nr_telefone}</p>
         <p><strong>CPF:</strong> {user.nr_cpf}</p>
+        <button onClick={handleLogout} className="logout-button" style={{ width: '100px', margin: '10px' }}>Sair</button>
       </div>
     </div>
   );

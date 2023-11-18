@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import '../pages/Bolsas.css';
+
 
 function Bolsas() {
   const navigate = useNavigate();
@@ -12,9 +14,10 @@ function Bolsas() {
   }, [navigate]);
 
   return (
-    <div>
-      <p>Bolsas</p>
-      {/* Restante do conteúdo da página Bolsas */}
+    <div className="bolsas-container">
+      <h1>Cadastro de Bolsas</h1>
+      <p>Não possui uma bolsa Uniedu? <a href="https://bolsasuniedu.sed.sc.gov.br/iesinscricaoinicial.aspx" target="_blank" rel="noreferrer" className="image-link">Clique Aqui</a> para se cadastrar em uma!</p>
+      <p>Após fazer o cadastro, vá para a página <Link to="/demandas">Demandas</Link> para se inscrever em uma demanda!</p>
     </div>
   );
 }

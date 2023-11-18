@@ -21,7 +21,12 @@ h1 span {
 }
 
 p {
-  margin-bottom: 1.5em;
+  margin-top: 50px;
+  color: #7b7b7b;
+}
+
+p2 {
+  margin-top: 70px;
   color: #7b7b7b;
 }
 
