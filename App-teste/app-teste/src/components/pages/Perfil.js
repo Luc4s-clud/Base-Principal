@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Importe o axios
+import axios from 'axios';
+import PerfilView from './PerfilView'; // Importando o componente de apresentação
 
 function Perfil() {
   const navigate = useNavigate();
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/login');
-  }
   const [user, setUser] = useState({
     nm_usuario: '',
     nr_cpf: '',
@@ -20,36 +17,27 @@ function Perfil() {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
   
-    console.log('UserId armazenado:', userId);
-  
     if (!token) {
       navigate('/login');
     } else {
-      axios.get(`http://localhost:3050/user:id/${userId}`, { headers: { Authorization: `Bearer ${token}` } })
+      axios.get(`http://localhost:3050/user/${userId}`, { headers: { Authorization: `Bearer ${token}` } })
         .then((response) => {
-          setUser(response.data);
+          if (response.data) {
+            setUser(response.data);
+          }
         })
         .catch((error) => {
           console.log('Erro ao buscar dados do usuário:', error);
-          
         });
     }
   }, [navigate]);
-  
 
 
-  return (
-    <div className="perfil-container">
-      <h1>Perfil</h1>
-      <div className="perfil-card">
-        <h2>{user.nome}</h2>
-        <p><strong>Email:</strong> {user.ds_email}</p>
-        <p><strong>Telefone:</strong> {user.nr_telefone}</p>
-        <p><strong>CPF:</strong> {user.nr_cpf}</p>
-        <button onClick={handleLogout} className="logout-button" style={{ width: '100px', margin: '10px' }}>Sair</button>
-      </div>
-    </div>
-  );
+ return <PerfilView user={user} />; // Renderizando o componente de apresentação
+ 
 }
 
 export default Perfil;
+
+
+

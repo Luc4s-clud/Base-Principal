@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const UserController = require('../controllers/UserController');
+const UserController = require('../Controllers/UserController');
+const DemandaController = require('../Controllers/DemandaController');
 
 
 
@@ -11,6 +12,7 @@ router.get('/api/hello', (req, res) => {
 router.post('/login', UserController.signIn);
 router.post('/register', UserController.createUser);
 router.get('/user/:id', UserController.getUser);
+router.get('/demandas', DemandaController.getAllDemandas);
 
 
 // Aqui, você adicionará mais rotas conforme necessário

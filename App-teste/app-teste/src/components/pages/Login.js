@@ -33,10 +33,6 @@ function Login() {
          // console.log ('token', response.data.token );
           // Armazena o userId no localStorage
           localStorage.setItem('userId', response.data.userId);
-  
-          localStorage.setItem('userId', response.data.nm_usuario);
-
-  
           navigate("/home");
         } else {
           setError(response.data.message);

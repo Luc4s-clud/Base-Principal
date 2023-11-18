@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const db = require('../models');
 const User = db.User;
-const Usuarios = db.Usuarios
+const Usuarios = db.Usuarios;
 
 
 exports.signIn = async (req, res) => {
@@ -36,9 +36,6 @@ exports.signIn = async (req, res) => {
     });
   }
 };
-
-
-
 
 
 exports.createUser = async (req, res) => {
@@ -82,16 +79,17 @@ exports.createUser = async (req, res) => {
 
 exports.getUser = async (req, res) => {
   try {
-    const username = req.params.username; // Obter o nome de usuário dos parâmetros da rota
-    const user = await Usuarios.findOne({ where: { nm_usuario: username } }); // Buscar o usuário pelo nome
+    const userId = req.params.id; // Mudança aqui para usar o userId (ou 'id') dos parâmetros da rota
+    const user = await Usuarios.findOne({ where: { cd_usuario: userId } }); // Busca pelo 'cd_usuario'
+    
     if (!user) {
       return res.status(404).send({ message: 'Usuário não encontrado.' });
     }
-    res.send(user);
+    
+    res.send(user); // Enviar dados do usuário
   } catch (error) {
     res.status(500).send({
       message: error.message || 'Erro ao buscar usuário.'
     });
   }
 };
-
