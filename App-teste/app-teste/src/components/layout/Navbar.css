@@ -2,7 +2,7 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #222;
   padding: 15px;
   color: white;
@@ -13,12 +13,17 @@
   .logo {
     width: 9em;
     height: auto;
+    position: absolute;
+    left: 15px; /* Define a posição em relação à borda esquerda */
+    top: 6%; /* Alinha verticalmente ao meio da barra de navegação */
+    transform: translateY(-50%); /* Ajusta para centralizar verticalmente */
   }
   
   /* Estilo para o contêiner flex que envolve a lista */
   .link-container {
     display: flex;
     justify-content: space-between;
+    margin-left: auto;
   }
   
   /* Estilo para a lista de links */
@@ -79,13 +84,15 @@
   .item2 img {
     width: 50px;
     height: auto;
-    transition: opacity 0.2s;
     display: block;
     margin: 0 auto;
+    margin-top: 16px;
   }
   
+
   .item2 div {
-    margin-top: -1px;
+    margin-left: -10px;
+    margin-top: 35px;
     color: #fff;
     text-align: center;
     cursor: pointer; /* Adicionar cursor pointer para indicar interatividade */
@@ -100,3 +107,4 @@
   a {
     text-decoration: none !important;
   }
+  

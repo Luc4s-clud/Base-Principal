@@ -1,11 +1,25 @@
-// Importe o arquivo SVG no componente
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../images/logo-site-branco.png';
-import userLogo from '../images/user-foto-branco.png'; // Importe o SVG
+import userLogoBranco from '../images/user-foto-branco.png';
+import userLogoLaranja from '../images/user-foto-laranja.png';
 
 function NavBar() {
+  const trocarParaImagemLaranja = () => {
+    const imagem = document.getElementById('user-logo');
+    if (imagem) {
+      imagem.src = userLogoLaranja;
+    }
+  };
+
+  const restaurarImagemOriginal = () => {
+    const imagem = document.getElementById('user-logo');
+    if (imagem) {
+      imagem.src = userLogoBranco;
+    }
+  };
+
   return (
     <nav className="navbar">
       <img src={logo} alt='logo' className="logo" />
@@ -18,7 +32,14 @@ function NavBar() {
           <li className="item"><Link to="/certificados">Certificados</Link></li>
           <li className="item2">
             <Link to="/perfil">
-              <img src={userLogo} alt="Perfil" className="logo" />
+              <img
+                src={userLogoBranco}
+                alt="Perfil"
+                className="logo"
+                id="user-logo"
+                onMouseOver={trocarParaImagemLaranja}
+                onMouseOut={restaurarImagemOriginal}
+              />
               <div>Meu Perfil</div>
             </Link>
           </li>
