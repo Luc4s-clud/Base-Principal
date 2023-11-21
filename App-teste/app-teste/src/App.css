@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Estilos gerais para a caixa de atividades */
+.activity-box {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.activity-box h2 {
+  margin-bottom: 10px;
+}
+
+.activity-box ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.activity-box li {
+  margin-bottom: 5px;
+}
+
+.activity-box a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Estilos específicos para a HomePage */
+.activity-box.home-page {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Certificados.css';
 
 function Certificados() {
   const navigate = useNavigate();
@@ -12,9 +13,12 @@ function Certificados() {
   }, [navigate]);
 
   return (
-    <div>
+    <div className="certificados-container">
       <h1>Certificados</h1>
-      {/* Restante do conteúdo da página Certificados */}
+      <p className="certificados-texto">Clique no botão abaixo para baixar seu certificado</p>
+      <a href="../images/certificado.png" download="certificado.png">
+        <button className="botao-certificado">Baixar Certificado</button>
+      </a>
     </div>
   );
 }

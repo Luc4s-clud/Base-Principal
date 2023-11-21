@@ -1,0 +1,27 @@
+.certificados-container {
+    text-align: center; 
+    min-height: 35em; 
+  }
+
+.certificados-texto {
+    margin-bottom: 20px;
+    color: #222;   
+}
+
+.botao-certificado {
+    background-color: #222;
+    color: #fff;
+    text-decoration: none;
+    width: 200px;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+  
+.botao-certificado:hover {
+    color: #ffbb33;
+    transform: translateY(-2px);
+}
+
+.botao-certificado:active {
+    transform: translateY(0);
+}
