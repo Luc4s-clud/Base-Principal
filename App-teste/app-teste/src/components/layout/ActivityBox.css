@@ -1,0 +1,44 @@
+.activity-box {
+    border: 1px solid #000;
+    padding: 15px;
+    border-radius: 5px;
+    position: absolute;
+    max-width: 280px;
+  }
+  
+  .activity-box h2 {
+    margin-bottom: 10px;
+  }
+  
+  .activity-box ul {
+    list-style-type: disc;
+    padding-right: 5px;
+    overflow: hidden;
+  }
+
+  .activity-box li::marker {
+    color: #000; /* cor desejada da bolinha */
+  }
+  
+  .activity-box li {
+    margin-bottom: 5px;
+    color: gray;
+  }
+  
+  .activity-box a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .activity-box a:hover {
+    color: #ffbb33;
+  }
+  
+  /* Estilos específicos para a HomePage */
+  .activity-box.home-page {
+    top: 250px;
+    right: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }

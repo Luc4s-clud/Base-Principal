@@ -14,9 +14,9 @@
     width: 9em;
     height: auto;
     position: absolute;
-    left: 15px; /* Define a posição em relação à borda esquerda */
-    top: 6%; /* Alinha verticalmente ao meio da barra de navegação */
-    transform: translateY(-50%); /* Ajusta para centralizar verticalmente */
+    left: 15px;
+    top: 6%; 
+    transform: translateY(-50%); 
   }
   
   /* Estilo para o contêiner flex que envolve a lista */
@@ -43,15 +43,13 @@
     margin-right: 1.5em;
     position: relative;
     overflow: hidden;
-    transition: transform 0.2s; /* Adiciona uma transição suave de 0.2 segundos ao tamanho */
+    transition: transform 0.2s; 
   }
   
-  /* Quando o mouse passa por cima do item, aumente o tamanho (scale) */
   .item:hover {
-    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+    transform: scale(1.1); 
   }
   
-  /* Restaure o tamanho original quando não estiver mais em foco */
   .item a {
     display: block;
     padding: 10px;
@@ -59,7 +57,7 @@
     color: #fff;
   }
   
-  /* Quando o mouse passa por cima do link, altere a cor */
+
   .item a:hover {
     color: #ffbb33;
   }
@@ -86,7 +84,7 @@
     height: auto;
     display: block;
     margin: 0 auto;
-    margin-top: 16px;
+    margin-top: 19px;
   }
   
 
@@ -95,13 +93,13 @@
     margin-top: 35px;
     color: #fff;
     text-align: center;
-    cursor: pointer; /* Adicionar cursor pointer para indicar interatividade */
-    transition: color 0.2s, transform 0.2s; /* Adicionado transição de cor e tamanho ao passar o mouse */
+    cursor: pointer; 
+    transition: color 0.2s, transform 0.2s; 
   }
   
   .item2:hover div {
-    color: #ffbb33; /* Alterar cor ao passar o mouse */
-    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+    color: #ffbb33; 
+    transform: scale(1.1); 
   }
 
   a {
