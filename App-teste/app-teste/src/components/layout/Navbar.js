@@ -27,6 +27,7 @@ function NavBar() {
         <ul className="link-list">
           <li className="item"><Link to="/home">Home</Link></li>
           <li className="item"><Link to="/bolsas">Cadastro de Bolsas</Link></li>
+          <li className="item"><Link to="/criar-demanda">Criar Demanda</Link></li>
           <li className="item"><Link to="/demandas">Demandas</Link></li>
           <li className="item"><Link to="/atividades">Atividades</Link></li>
           <li className="item"><Link to="/certificados">Certificados</Link></li>

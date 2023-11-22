@@ -13,6 +13,7 @@ router.post('/login', UserController.signIn);
 router.post('/register', UserController.createUser);
 router.get('/user/:id', UserController.getUser);
 router.get('/demandas', DemandaController.getAllDemandas);
+router.post('/demandas', DemandaController.createDemanda);
 
 
 // Aqui, você adicionará mais rotas conforme necessário

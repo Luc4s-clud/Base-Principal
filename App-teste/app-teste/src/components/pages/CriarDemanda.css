@@ -1,0 +1,24 @@
+/* No seu arquivo CSS, por exemplo, Navbar.css */
+.nav-item {
+    padding: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #000; /* Cor padrão dos links */
+}
+
+.nav-item:hover {
+    background-color: #f0f0f0; /* Cor de fundo ao passar o mouse */
+}
+
+.create-demand-button {
+    background-color: #ffc107; /* Cor de destaque para 'Criar Demanda' */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.create-demand-button:hover {
+    background-color: #e0a800; /* Cor mais escura ao passar o mouse */
+}

@@ -9,7 +9,7 @@ import Demandas from './components/pages/Demandas';
 import Certificados from './components/pages/Certificados';
 import NavBar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-
+import CriarDemanda from './components/pages/CriarDemanda';
 
 function App() {
     return (
@@ -35,6 +35,7 @@ function ProtectedRoutes() {
                 <Route path="/atividades" element={<Atividades />} />
                 <Route path="/demandas" element={<Demandas />} />
                 <Route path="/certificados" element={<Certificados />} />
+                <Route path="/criar-demanda" element={<CriarDemanda />} />
             </Routes>
             <Footer />
         </>
