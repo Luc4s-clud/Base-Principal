@@ -1,5 +1,6 @@
 const db = require('../models');
-const Demanda = db.Demanda;
+const SequelizeDemanda = db.Demanda;
+
 const { Demanda } = require('../models/demanda');
 
 exports.getAllDemandas = async (req, res) => {
@@ -12,8 +13,6 @@ exports.getAllDemandas = async (req, res) => {
     });
   }
 };
-
-// Certifique-se de que o caminho esteja correto
 
 exports.createDemanda = async (req, res) => {
     try {
