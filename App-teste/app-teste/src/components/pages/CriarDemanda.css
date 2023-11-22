@@ -1,9 +1,11 @@
-/* No seu arquivo CSS, por exemplo, Navbar.css */
 .nav-item {
     padding: 10px;
     margin-right: 10px;
     text-decoration: none;
-    color: #000; /* Cor padrão dos links */
+    color: #222;
+    display: block;
+    margin-bottom: 10px;
+
 }
 
 .nav-item:hover {
@@ -11,12 +13,13 @@
 }
 
 .create-demand-button {
-    background-color: #ffc107; /* Cor de destaque para 'Criar Demanda' */
-    color: white;
-    border: none;
-    padding: 10px 15px;
+    background-color: #222;
+    color: #fff;
+    text-decoration: none;
+    width: 200px;
+    transition: 0.5s;
     border-radius: 5px;
-    font-weight: bold;
+    margin-top: 10px;
 }
 
 .create-demand-button:hover {

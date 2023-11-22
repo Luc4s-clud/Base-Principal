@@ -1,11 +1,9 @@
 const db = require('../models');
 const SequelizeDemanda = db.Demanda;
 
-const { Demanda } = require('../models/demanda');
-
 exports.getAllDemandas = async (req, res) => {
   try {
-    const demandas = await Demanda.findAll();
+    const demandas = await SequelizeDemanda.findAll();
     res.json(demandas);
   } catch (error) {
     res.status(500).send({
@@ -15,10 +13,13 @@ exports.getAllDemandas = async (req, res) => {
 };
 
 exports.createDemanda = async (req, res) => {
-    try {
-        const novaDemanda = await Demanda.create(req.body);
-        res.status(201).send(novaDemanda);
-    } catch (error) {
-        res.status(500).send({ error: 'Erro ao criar demanda' });
-    }
+  try {
+      console.log('Dados recebidos:', req.body);
+      const novaDemanda = await SequelizeDemanda.create(req.body);
+      console.log('Demanda criada:', novaDemanda);
+      res.status(201).send(novaDemanda);
+  } catch (error) {
+      console.error('Erro ao criar demanda:', error);
+      res.status(500).send({ error: 'Erro ao criar demanda' });
+  }
 };
