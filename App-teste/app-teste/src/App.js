@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './components/pages/Login';
 import Home from './components/pages/Home';
 import Bolsas from './components/pages/Bolsas';
@@ -12,21 +12,41 @@ import Footer from './components/layout/Footer';
 import CriarDemanda from './components/pages/CriarDemanda';
 
 function App() {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    const handleLogin = () => {
+        // Simulação de lógica de login bem-sucedida
+        setIsAuthenticated(true);
+    };
+
+    const handleLogout = () => {
+        // Simulação de lógica de logout
+        setIsAuthenticated(false);
+    };
+    
     return (
         <BrowserRouter>
-          <Routes>
-            <Route index element={<Login />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/*" element={<ProtectedRoutes />} />
-          </Routes>
+            <Routes>
+                <Route path="/login" element={<Login onLogin={handleLogin} />} />
+                <Route
+                    path="/*"
+                    element={
+                        isAuthenticated ? (
+                            <ProtectedRoutes onLogout={handleLogout} />
+                        ) : (
+                            <Navigate to="/login" />
+                        )
+                    }
+                />
+            </Routes>
         </BrowserRouter>
     );
 }
 
-function ProtectedRoutes() {
+function ProtectedRoutes({ onLogout }) {
     return (
         <>
-            <NavBar />
+            <NavBar onLogout={onLogout} />
             <Routes>
                 <Route index element={<Home />} />
                 <Route path="/home" element={<Home />} />
