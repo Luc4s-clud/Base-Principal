@@ -1,6 +1,6 @@
 const db = require('../models');
 const Demanda = db.Demanda;
-const { Demanda } = require('../models/demanda');
+//const { Demanda } = require('../models/demanda');
 
 exports.getAllDemandas = async (req, res) => {
   try {

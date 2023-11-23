@@ -1,42 +1,62 @@
-// CriarDemanda.js
-import React, { useState } from 'react';
+// Arquivo CriarDemanda.js
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './CriarDemanda.css'
+import DemandaForm from './DemandaForm';
+import './CriarDemanda.css';
 
 function CriarDemanda() {
     const [demanda, setDemanda] = useState({
         nm_demanda: '',
         ds_descricao: '',
-        // Adicione estados para todos os outros campos
+        qt_horas: '',
+        qt_vagas: '',
+        dt_inicio: '',
+        dt_fim: '',
+        cd_imagem: '', // Este campo será tratado separadamente para upload de arquivo
+        cd_localizacao: '', // Inicialmente vazio, será preenchido com a seleção do usuário
     });
+
+    const [localizacoes, setLocalizacoes] = useState([]); // Estado para armazenar localizações
     const navigate = useNavigate();
 
-    const handleChange = (e) => {
-        setDemanda({ ...demanda, [e.target.name]: e.target.value });
-    };
+    // Carrega localizações ao inicializar o componente
+    useEffect(() => {
+        const fetchLocalizacoes = async () => {
+            try {
+                const response = await axios.get('http://localhost:3050/localizacoes');
+                setLocalizacoes(response.data);
+                console.log(response.data); // Adicione este log para ver os dados
+            } catch (error) {
+                console.error('Erro ao carregar localizações:', error);
+            }
+        };
+        fetchLocalizacoes();
+    }, []);
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        // Aqui você precisará manipular o envio do campo de imagem se necessário
+        // ...
+
         try {
             const response = await axios.post('http://localhost:3050/demandas', demanda);
             console.log('Demanda criada:', response.data);
-            navigate('/home'); // Ou para a página de sucesso
+            navigate('/home');
         } catch (error) {
             console.error('Erro ao criar demanda:', error);
         }
     };
 
     return (
-        <div>
-            <h2>Criar Nova Demanda</h2>
-            <form onSubmit={handleSubmit}>
-                <input name="nm_demanda" type="text" value={demanda.nm_demanda} onChange={handleChange} placeholder="Nome da Demanda" required />
-                <textarea name="ds_descricao" value={demanda.ds_descricao} onChange={handleChange} placeholder="Descrição da Demanda" required />
-                {/* Repita para os outros campos */}
-                <button type="submit">Criar</button>
-            </form>
-        </div>
+        <DemandaForm
+            demanda={demanda}
+            setDemanda={setDemanda}
+            localizacoes={localizacoes}
+            handleSubmit={handleSubmit}
+        />
     );
 }
 
