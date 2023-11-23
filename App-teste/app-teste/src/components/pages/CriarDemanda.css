@@ -1,27 +1,32 @@
-.nav-item {
+/* CriarDemanda.css */
+.demanda-form {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 8px;
+}
+
+.demanda-form input,
+.demanda-form textarea,
+.demanda-form select {
+    width: 100%;
     padding: 10px;
-    margin-right: 10px;
-    text-decoration: none;
-    color: #222;
-    display: block;
-    margin-bottom: 10px;
-
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
-.nav-item:hover {
-    background-color: #f0f0f0; /* Cor de fundo ao passar o mouse */
+.demanda-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.create-demand-button {
-    background-color: #222;
-    color: #fff;
-    text-decoration: none;
-    width: 200px;
-    transition: 0.5s;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-.create-demand-button:hover {
-    background-color: #e0a800; /* Cor mais escura ao passar o mouse */
+.demanda-form button:hover {
+    background-color: #003f88;
 }

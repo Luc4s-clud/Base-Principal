@@ -1,80 +1,57 @@
-// CriarDemanda.js
-import React, { useState } from 'react';
+// Arquivo CriarDemanda.js
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import DemandaForm from './DemandaForm';
 import './CriarDemanda.css';
 
 function CriarDemanda() {
     const [demanda, setDemanda] = useState({
         nm_demanda: '',
         ds_descricao: '',
-        qt_horas: 0,
-        qt_vagas: 0,
+        qt_horas: '',
+        qt_vagas: '',
         dt_inicio: '',
         dt_fim: '',
-        dt_fim_inscricao: '',
-        // Certifique-se de adicionar estados para todos os outros campos
+        cd_imagem: '', // Este campo será tratado separadamente para upload de arquivo
+        cd_localizacao: '', // Inicialmente vazio, será preenchido com a seleção do usuário
     });
 
+    const [localizacoes, setLocalizacoes] = useState([]); // Estado para armazenar localizações
     const navigate = useNavigate();
 
-    const handleChange = (e) => {
-        setDemanda({ ...demanda, [e.target.name]: e.target.value });
-    };
+    // Carrega localizações ao inicializar o componente
+    useEffect(() => {
+        const fetchLocalizacoes = async () => {
+            // Substitua pela sua URL de API real
+            const response = await axios.get('http://localhost:3050/localizacoes');
+            setLocalizacoes(response.data);
+        };
+        fetchLocalizacoes();
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        // Aqui você precisará manipular o envio do campo de imagem se necessário
+        // ...
+
         try {
             const response = await axios.post('http://localhost:3050/demandas', demanda);
             console.log('Demanda criada:', response.data);
-            navigate('/home'); // Ou para a página de sucesso
+            navigate('/home');
         } catch (error) {
             console.error('Erro ao criar demanda:', error);
         }
     };
 
     return (
-        <div>
-            <h2>Criar Nova Demanda</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Nome da Demanda:
-                    <input name="nm_demanda" className="nav-item" type="text" value={demanda.nm_demanda} onChange={handleChange} required />
-                </label>
-
-                <label>
-                    Descrição da Demanda:
-                    <textarea name="ds_descricao" className="nav-item" value={demanda.ds_descricao} onChange={handleChange} required />
-                </label>
-
-                <label>
-                    Quantidade de Horas:
-                    <input name="qt_horas" className="nav-item" type="number" value={demanda.qt_horas} onChange={handleChange} required />
-                </label>
-
-                <label>
-                    Quantidade de Vagas:
-                    <input name="qt_vagas" className="nav-item" type="number" value={demanda.qt_vagas} onChange={handleChange} required />
-                </label>
-
-                <label>
-                    Data de Início:
-                    <input name="dt_inicio" className="nav-item" type="date" value={demanda.dt_inicio} onChange={handleChange} required />
-                </label>
-
-                <label>
-                    Data de Fim:
-                    <input name="dt_fim" className="nav-item" type="date" value={demanda.dt_fim} onChange={handleChange} required />
-                </label>
-
-                <label>
-                    Data de Fim da Inscrição:
-                    <input name="dt_fim_inscricao" className="nav-item" type="date" value={demanda.dt_fim_inscricao} onChange={handleChange} required />
-                </label>
-
-                <button type="submit" className='create-demand-button'>Criar</button>
-            </form>
-        </div>
+        <DemandaForm
+            demanda={demanda}
+            setDemanda={setDemanda}
+            localizacoes={localizacoes}
+            handleSubmit={handleSubmit}
+        />
     );
 }
 
