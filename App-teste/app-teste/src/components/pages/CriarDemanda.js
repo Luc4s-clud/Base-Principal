@@ -72,7 +72,6 @@ function CriarDemanda() {
                     <input name="dt_fim_inscricao" className="nav-item" type="date" value={demanda.dt_fim_inscricao} onChange={handleChange} required />
                 </label>
 
-                {/* Adicione campos para os outros estados */}
                 <button type="submit" className='create-demand-button'>Criar</button>
             </form>
         </div>
