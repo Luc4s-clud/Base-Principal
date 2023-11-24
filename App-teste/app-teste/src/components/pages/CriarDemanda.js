@@ -23,12 +23,17 @@ function CriarDemanda() {
     // Carrega localizações ao inicializar o componente
     useEffect(() => {
         const fetchLocalizacoes = async () => {
-            // Substitua pela sua URL de API real
-            const response = await axios.get('http://localhost:3050/localizacoes');
-            setLocalizacoes(response.data);
+            try {
+                const response = await axios.get('http://localhost:3050/localizacoes');
+                setLocalizacoes(response.data);
+                console.log(response.data); // Adicione este log para ver os dados
+            } catch (error) {
+                console.error('Erro ao carregar localizações:', error);
+            }
         };
         fetchLocalizacoes();
     }, []);
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();

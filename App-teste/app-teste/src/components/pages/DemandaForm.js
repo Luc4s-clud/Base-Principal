@@ -1,6 +1,5 @@
 // Arquivo DemandaForm.js
 import React from 'react';
-import '../pages/CriarDemanda.css'
 
 const DemandaForm = ({ demanda, setDemanda, localizacoes, handleSubmit }) => {
   const handleChange = (e) => {
@@ -76,12 +75,13 @@ const DemandaForm = ({ demanda, setDemanda, localizacoes, handleSubmit }) => {
         {/* Localização */}
         <label>Localização:</label>
         <select name="cd_localizacao" value={demanda.cd_localizacao} onChange={handleChange} required>
-            {Array.isArray(localizacoes) && localizacoes.map(loc => (
-                <option key={loc.cd_localizacao} value={loc.cd_localizacao}>
-                    {loc.ds_localizacao}
-                </option>
-            ))}
-        </select>
+    {localizacoes.map(loc => (
+        <option key={loc.cd_localizacao} value={loc.cd_localizacao}>
+            {loc.ds_localizacao} 
+        </option>
+    ))}
+</select>
+
 
         <button type="submit">Criar</button>
       </form>
