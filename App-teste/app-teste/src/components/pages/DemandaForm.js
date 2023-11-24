@@ -1,5 +1,6 @@
 // Arquivo DemandaForm.js
 import React from 'react';
+import '../pages/CriarDemanda.css'
 
 const DemandaForm = ({ demanda, setDemanda, localizacoes, handleSubmit }) => {
   const handleChange = (e) => {

@@ -14,7 +14,7 @@ router.post('/register', UserController.createUser);
 router.get('/user/:id', UserController.getUser);
 router.get('/demandas', DemandaController.getAllDemandas);
 router.post('/demandas', DemandaController.createDemanda);
-router.get('/localizacao', LocalizacaoController.listAll);
+router.get('/localizacoes', LocalizacaoController.listAll);
 
 
 // Aqui, você adicionará mais rotas conforme necessário

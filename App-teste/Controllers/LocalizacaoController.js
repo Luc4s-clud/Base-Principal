@@ -1,9 +1,8 @@
 // controllers/LocalizacaoController.js
 
-const { Localizacao } = require('../models'); // Substitua pelo caminho correto do seu modelo de Localização
+const { Localizacao } = require('../models');
 
 const LocalizacaoController = {
-  // Método para listar todas as localizações
   async listAll(req, res) {
     try {
       const localizacoes = await Localizacao.findAll();
@@ -13,7 +12,7 @@ const LocalizacaoController = {
     }
   },
 
-  // Adicione outros métodos conforme necessário
+  // Outros métodos...
 };
 
 module.exports = LocalizacaoController;
