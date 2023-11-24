@@ -16,12 +16,16 @@ function CriarDemanda() {
         cd_imagem: '', // Este campo será tratado separadamente para upload de arquivo
         cd_localizacao: '', // Inicialmente vazio, será preenchido com a seleção do usuário
     });
-
+    
     const [localizacoes, setLocalizacoes] = useState([]); // Estado para armazenar localizações
     const navigate = useNavigate();
 
     // Carrega localizações ao inicializar o componente
     useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+        navigate('/login');
+        }   
         const fetchLocalizacoes = async () => {
             try {
                 const response = await axios.get('http://localhost:3050/localizacoes');
