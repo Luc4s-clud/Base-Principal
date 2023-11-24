@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './components/pages/Login';
 import Home from './components/pages/Home';
@@ -14,15 +14,21 @@ import CriarDemanda from './components/pages/CriarDemanda';
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        setIsAuthenticated(!!token); // !! converte para booleano
+    }, []);
+
     const handleLogin = () => {
-        // Simulação de lógica de login bem-sucedida
         setIsAuthenticated(true);
     };
 
     const handleLogout = () => {
-        // Simulação de lógica de logout
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
         setIsAuthenticated(false);
     };
+
     
     return (
         <BrowserRouter>

@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const UserController = require('../Controllers/UserController');
 const DemandaController = require('../Controllers/DemandaController');
-const LocalizacaoController  = require ('../Controllers/LocalizacaoController');
-
+const LocalizacaoController = require('../Controllers/LocalizacaoController');
 
 
 // Exemplo de rota
@@ -16,6 +15,7 @@ router.get('/user/:id', UserController.getUser);
 router.get('/demandas', DemandaController.getAllDemandas);
 router.post('/demandas', DemandaController.createDemanda);
 router.get('/localizacoes', LocalizacaoController.listAll);
+
 
 // Aqui, você adicionará mais rotas conforme necessário
 
