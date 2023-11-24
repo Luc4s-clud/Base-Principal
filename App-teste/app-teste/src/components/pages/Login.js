@@ -4,7 +4,7 @@ import '../pages/Login.css';
 import logoImage from '../images/logo-site-preto-menor-ainda.png';
 import { useNavigate } from "react-router-dom";
 
-function Login({ onLogin } ) {
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -35,7 +35,6 @@ function Login({ onLogin } ) {
           // Armazena o userId no localStorage
           localStorage.setItem('userId', response.data.userId);
           navigate("/home");
-          onLogin();
         } else {
           setError(response.data.message);
         }

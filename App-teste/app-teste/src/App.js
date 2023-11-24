@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './components/pages/Login';
 import Home from './components/pages/Home';
 import Bolsas from './components/pages/Bolsas';
@@ -11,48 +11,23 @@ import NavBar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import CriarDemanda from './components/pages/CriarDemanda';
 
+
 function App() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        setIsAuthenticated(!!token); // !! converte para booleano
-    }, []);
-
-    const handleLogin = () => {
-        setIsAuthenticated(true);
-    };
-
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('userId');
-        setIsAuthenticated(false);
-    };
-
-    
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path="/login" element={<Login onLogin={handleLogin} />} />
-                <Route
-                    path="/*"
-                    element={
-                        isAuthenticated ? (
-                            <ProtectedRoutes onLogout={handleLogout} />
-                        ) : (
-                            <Navigate to="/login" />
-                        )
-                    }
-                />
-            </Routes>
+          <Routes>
+            <Route index element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/*" element={<ProtectedRoutes />} />
+          </Routes>
         </BrowserRouter>
     );
 }
 
-function ProtectedRoutes({ onLogout }) {
+function ProtectedRoutes() {
     return (
         <>
-            <NavBar onLogout={onLogout} />
+            <NavBar />
             <Routes>
                 <Route index element={<Home />} />
                 <Route path="/home" element={<Home />} />

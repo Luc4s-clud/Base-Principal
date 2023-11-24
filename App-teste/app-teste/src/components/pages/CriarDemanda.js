@@ -36,7 +36,7 @@ function CriarDemanda() {
             }
         };
         fetchLocalizacoes();
-    }, []);
+    }, [navigate]);
     
 
     const handleSubmit = async (e) => {

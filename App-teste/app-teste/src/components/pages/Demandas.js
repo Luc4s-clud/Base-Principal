@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DemandasView from './DemandasView';
+import { useNavigate } from 'react-router-dom';
 
 function Demandas() {
   const [demandas, setDemandas] = useState([]);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
+  
   useEffect(() => {
     axios.get('http://localhost:3050/demandas')
       .then(response => {
