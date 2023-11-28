@@ -8,7 +8,7 @@ exports.getAllDemandas = async (req, res) => {
     res.json(demandas);
   } catch (error) {
     res.status(500).send({
-      message: error.message || "Ocorreu um erro ao buscar as demandas."
+      message: `Erro ao buscar as demandas: ${error.message}`
     });
   }
 };
@@ -20,6 +20,6 @@ exports.createDemanda = async (req, res) => {
         const novaDemanda = await Demanda.create(req.body);
         res.status(201).send(novaDemanda);
     } catch (error) {
-        res.status(500).send({ error: 'Erro ao criar demanda' });
+        res.status(500).send({ error: `Erro ao criar demanda: ${error.message}` });
     }
 };

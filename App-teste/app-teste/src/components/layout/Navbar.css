@@ -97,12 +97,14 @@
     transition: color 0.2s, transform 0.2s; 
   }
   
-  .item2:hover div {
-    color: #ffbb33; 
-    transform: scale(1.1); 
-  }
+
 
   a {
     text-decoration: none !important;
   }
   
+
+  .image-caption.text-hovered {
+    color: #ffbb33; 
+    transform: scale(1.1); 
+  }
