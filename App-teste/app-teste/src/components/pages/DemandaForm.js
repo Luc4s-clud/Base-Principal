@@ -83,7 +83,7 @@ const DemandaForm = ({ demanda, setDemanda, localizacoes, handleSubmit }) => {
 </select>
 
 
-        <button type="submit">Criar</button>
+        <button type="submit">Criar Demanda</button>
       </form>
     </div>
   );
