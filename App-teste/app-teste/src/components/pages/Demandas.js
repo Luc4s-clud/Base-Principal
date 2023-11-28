@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DemandasView from './DemandasView';
 import { useNavigate } from 'react-router-dom';
+import './Demandas.css';
 
 function Demandas() {
   const [demandas, setDemandas] = useState([]);
