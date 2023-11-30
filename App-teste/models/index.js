@@ -27,12 +27,19 @@ fs
     );
   })
   .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
+    try {
+        const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+        if (model && model.name) {
+            db[model.name] = model;
+            console.log(`Model ${model.name} loaded successfully.`);
+        } else {
+            console.error(`Model in file ${file} does not have a 'name' property.`);
+        }
+    } catch (error) {
+        console.error(`Error loading model from file ${file}:`, error);
+    }
   });
 
-
-  
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
