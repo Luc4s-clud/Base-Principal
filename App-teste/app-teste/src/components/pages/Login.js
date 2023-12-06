@@ -28,14 +28,13 @@ function Login() {
       });
       console.log('Resposta do servidor:', response.data); // Adicione esta linha
       if (response.data && response.data.message) {
-        if (response.data.message === 'Login bem-sucedido!') {
-          // Armazena o token no localStorage
+        if (response.data && response.data.message === 'Login bem-sucedido!') {
           localStorage.setItem('token', response.data.token);
-         // console.log ('token', response.data.token );
-          // Armazena o userId no localStorage
           localStorage.setItem('userId', response.data.userId);
+          localStorage.setItem('role', response.data.role);  // Adicione esta linha
+      
           navigate("/home");
-        } else {
+      } else {
           setError(response.data.message);
         }
       }

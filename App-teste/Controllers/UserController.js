@@ -25,7 +25,13 @@ exports.signIn = async (req, res) => {
     }
 
     console.log("Login bem-sucedido!");
-    res.send({ message: "Login bem-sucedido!", userId: user.cd_usuario });
+    res.send({
+      message: "Login bem-sucedido!",
+      userId: user.cd_usuario,
+      token: token,
+      role: user.cd_tp_usuario  // Adicione esta linha para enviar o papel do usuário
+  });
+  
 
     console.log({ message: "Login bem-sucedido!", userId: user.cd_usuario });
 
