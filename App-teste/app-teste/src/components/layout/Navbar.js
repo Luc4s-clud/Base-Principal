@@ -44,7 +44,7 @@ function NavBar() {
       <div className="link-container">
         <ul className="link-list">
           {/* Itens comuns a todos os usuários */}
-          <li className="item"><Link to="/home">Home</Link></li>
+          <li className="item"><Link to="/home">Início</Link></li>
           
           {/* Renderização condicional com base no papel do usuário */}
           {userRole === '1' && (

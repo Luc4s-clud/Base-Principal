@@ -54,7 +54,7 @@ h2 {
 p {
   color: #777;
   font-size: 14px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 h3 {
@@ -104,8 +104,8 @@ button {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  margin-bottom: -10px;
+  margin-top: -10px;
 }
 
 button:hover {
@@ -123,4 +123,14 @@ button:active {
   font-size: 14px;
   font-weight: bold;
   text-align: center;
+}
+
+.register-button {
+  background-color: #222;
+  color: #fff;
+  text-decoration: none;
+  width: 200px;
+  transition: 0.5s;
+  border-radius: 5px;
+  margin-top: -50em;
 }
