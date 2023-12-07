@@ -1,5 +1,5 @@
 // Home.js
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import '../pages/Home.css';
 import homelogo from '../images/logo-site-preto.png';
@@ -8,6 +8,13 @@ import ActivityBox from '../layout/ActivityBox';
 
 function Home() {
   const navigate = useNavigate();
+  const [userRole, setUserRole] = useState(''); 
+
+  useEffect(() => {
+    // Supondo que o papel do usuário está armazenado com a chave 'role' no localStorage
+    const role = localStorage.getItem('role');
+    setUserRole(role);
+  }, []);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -28,7 +35,12 @@ function Home() {
         <img src={homelogo} alt='homelogo' className="home-logo" />
       </div>
       
-      <ActivityBox isHomePage={true} />
+      {userRole === '2' && (
+            <>
+              <ActivityBox isHomePage={true} />
+            </>
+          )}
+     
     </div>
   );
 }
