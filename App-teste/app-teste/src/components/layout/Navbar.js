@@ -59,16 +59,19 @@ function NavBar() {
           {userRole === '3' && (
             <>
               <li className="item"><Link to="/chamada">Chamada</Link></li>
-              <li className="item"><Link to="/chamada">Minha Demanda</Link></li>
+              <li className="item"><Link to="/demandas">Demandas</Link></li>
+              <li className="item"><Link to="/atividades">Atividades</Link></li>
+              <li className="item"><Link to="/chamada">Criar Atividade</Link></li>
+              <li className="item"><Link to="/certificados">Certificados</Link></li>
               {/* Inclua outros links específicos para professores aqui */}
             </>
           )}
           {userRole === '2' && (
             <>
-              <li className="item"><Link to="/demandas">Demandas</Link></li>
-              <li className="item"><Link to="/certificados">Certificados</Link></li>
-              <li className="item"><Link to="/atividades">Atividades</Link></li>
               <li className="item"><Link to="/bolsas">Cadastro de Bolsas</Link></li>
+              <li className="item"><Link to="/demandas">Demandas</Link></li>
+              <li className="item"><Link to="/atividades">Atividades</Link></li>
+              <li className="item"><Link to="/certificados">Certificados</Link></li>
               {/* Inclua outros links específicos para alunos aqui */}
             </>
           )}
