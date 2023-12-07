@@ -29,7 +29,7 @@ function NavBar() {
       <img src={logo} alt='logo' className="logo" />
       <div className="link-container">
         <ul className="link-list">
-          <li className="item"><Link to="/home">Home</Link></li>
+          <li className="item"><Link to="/home">Início</Link></li>
           <li className="item"><Link to="/bolsas">Cadastro de Bolsas</Link></li>
           <li className="item"><Link to="/criar-demanda">Criar Demanda</Link></li>
           <li className="item"><Link to="/demandas">Demandas</Link></li>

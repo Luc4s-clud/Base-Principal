@@ -15,7 +15,7 @@ function Footer() {
                 </li>
             </ul>
             <p className='copy_right'>
-                <span>Controle de Horas - Uniedu</span> &copy; 2023
+                <span>Controle de Horas - Uniedu</span>
             </p>
         </footer>
     )

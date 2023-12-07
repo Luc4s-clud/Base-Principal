@@ -5,5 +5,57 @@
     justify-content: center;
     background-color: #fff;
     text-align: center;
-    margin-bottom: 20em;
+    margin-bottom: 18.1em;
+  }
+
+  .boxes-container {
+    display: flex;
+    justify-content: space-between; 
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+ 
+  .custom-box {
+    background-color: #fff; /* Cor de fundo branca */
+    color: #000;
+    display: block;
+    font-size: 14px;
+    min-height: 54px;
+    padding: 10px 10px 12px 20px;
+    width: 300px;
+    text-decoration: none;
+    transition: all 0.2s linear;
+    border: 1px solid #ccc; /* Adicione uma borda se desejar */
+    border-radius: 5px; /* Adicione bordas arredondadas se desejar */
+    flex-direction: column;
+    margin-right: 30px;
+  }
+  
+  .bolsa-icone {
+    width: 50px;
+    height: auto;
+  }
+  
+  .bolsas-title {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+  }
+  
+  .custom-box:hover {
+    background-color: #f0f0f0; /* Altere a cor de fundo ao passar o mouse, por exemplo */
+  }
+  
+  .button-box {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .text-container {
+    margin-left: 10px; 
+  }
+
+
+  .button-box p {
+    margin-top: 4px; /* Adicione um espaçamento entre o título e a descrição */
+    margin-bottom: 0; /* Garante que a descrição não tenha margem na parte inferior */
   }

@@ -23,7 +23,7 @@
 
 .uniedu-logo {
     height: 7vmin;
-    margin-right: 35px;
+    margin-right: 45px;
     transition: transform 0.2s;
 }
 
@@ -33,6 +33,7 @@
 
 .copy_right {
     margin-top: 1em;
+    margin-right: 20px;
 }
 
 .copy_right span{
