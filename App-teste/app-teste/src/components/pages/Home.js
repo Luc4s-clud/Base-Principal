@@ -27,7 +27,7 @@ function Home() {
         <p2>Não possui uma bolsa Uniedu? Na página <Link to="/bolsas">Cadastro de Bolsas</Link> você saberá como se cadastrar!</p2>
         <img src={homelogo} alt='homelogo' className="home-logo" />
       </div>
-
+      
       <ActivityBox isHomePage={true} />
     </div>
   );

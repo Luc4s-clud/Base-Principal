@@ -1,7 +1,11 @@
+require('dotenv').config();
 const bcrypt = require('bcrypt');
 const db = require('../models');
 const User = db.User;
 const Usuarios = db.Usuarios;
+const jwt = require('jsonwebtoken');
+const secret = process.env.JWT_SECRET;
+
 
 
 exports.signIn = async (req, res) => {
@@ -25,12 +29,14 @@ exports.signIn = async (req, res) => {
     }
 
     console.log("Login bem-sucedido!");
+    const token = jwt.sign({ userId: user.cd_usuario, role: user.cd_tp_usuario }, secret, { expiresIn: '2h' });
+
     res.send({
-      message: "Login bem-sucedido!",
-      userId: user.cd_usuario,
-      token: token,
-      role: user.cd_tp_usuario  // Adicione esta linha para enviar o papel do usuário
-  });
+        message: "Login bem-sucedido!",
+        userId: user.cd_usuario,
+        token: token,
+        role: user.cd_tp_usuario
+    });
   
 
     console.log({ message: "Login bem-sucedido!", userId: user.cd_usuario });
