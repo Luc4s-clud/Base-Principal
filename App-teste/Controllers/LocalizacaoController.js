@@ -12,7 +12,6 @@ const LocalizacaoController = {
     }
   },
 
-  // Outros métodos...
 };
 
 module.exports = LocalizacaoController;

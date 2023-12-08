@@ -161,7 +161,7 @@ function Login() {
           {error && <p className="error-message">{error}</p>}
           <div className="register-section">
             <p>Não tem uma conta?</p>
-            <button onClick={() => setShowRegister(true)}>Registre-se</button>
+            <button className="register-button" onClick={() => setShowRegister(true)}>Registre-se</button>
           </div>
         </div>
       )}

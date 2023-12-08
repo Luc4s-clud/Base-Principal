@@ -40,6 +40,11 @@ function Home() {
               <ActivityBox isHomePage={true} />
             </>
           )}
+      {userRole === '1' && (
+            <>
+              <ActivityBox isHomePage={true} />
+            </>
+          )}
      
     </div>
   );

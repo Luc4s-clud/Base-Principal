@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     cd_demanda: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     nm_demanda: DataTypes.STRING,
     ds_descricao: DataTypes.STRING,
-    qt_horas: DataTypes.INTEGER, // Alterado de DATE para INTEGER
+    qt_horas: DataTypes.INTEGER,
     qt_vagas: DataTypes.INTEGER,
     dt_inicio: DataTypes.DATE,
     dt_fim: DataTypes.DATE,
@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     cd_usuario: DataTypes.INTEGER,
     cd_imagem: DataTypes.BLOB('long'),
     cd_localizacao: DataTypes.INTEGER
-    // Adicione outros campos conforme necessário
   }, {
     tableName: 'demanda',
     timestamps: false // Desativar timestamps se não estiver usando campos createdAt e updatedAt
